@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Presentation. React</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<!-- 1 -->
+				<section>
+					<a href="https://reactjs.org/">
+						<img src="/src/assets/img/react_logo.png" alt="react js logo"
+							style="margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+					</a>
+					<h1>React</h1>
+				</section>
+				<!-- 2 -->
+				<section>
+					<img src="/src/assets/img/instagram.png" alt="instagram page"
+						style="margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+				</section>
+				<!-- 3 -->
+				<section>
+					<section id="fragments">
+						<h2>Why is React interesting?</h2>
+						<p class="fragment">&#183 Easy creation of dynamic application</p>
+						<p class="fragment">&#183 Improved performance</p>
+						<p class="fragment">&#183 Reusable components</p>
+						<p class="fragment">&#183 Unidirectional data flow</p>
+						<p class="fragment">&#183 Small learning curve</p>
+						<p class="fragment">&#183 It can be used for the development of both web and mobile apps</p>
+						<p class="fragment">&#183 Dedicated tools for easy debugging</p>
+					</section>
+				</section>
+				<!-- 4 -->
+				<section>
+					<h2>Features of React</h2>
+				</section>
+				<!-- 5 -->
+				<section class="slide-5">
+					<h2 class="slide-5__text">JSX</h2>
+					<p>Represents Objects</p>
+					<pre class="fragment fade-in"><code data-trim class="hljs" >
+						const element = (
+						  <h1 className="greeting">
+							'Hei, People!'
+						  </h1>
+						);
+					</code></pre>
+
+					<pre class="fragment fade-in"><code data-noescape data-trim class="hljs" >
+						const element = React.createElement(
+						'h1',
+						{className: 'greeting'},
+						'Hei, People!'
+					  );
+					</code></pre>
+
+					<pre class="fragment fade-in"><code data-noescape data-trim class="hljs" >
+					  // Note: this code is somewhat simplified.
+					  const element = {
+					  type: 'h1',
+					  props: {
+						className: 'greeting',
+						children: 'Hei, People!'
+						}
+					  };
+					</code></pre>
+				</section>
+				<!-- 6 -->
+				<section>
+					<h3>Document Object Model (DOM)</h3>
+					<img src="/src/assets/img/dom.jpg" alt="DOM tree"
+						style="margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+				</section>
+				<!-- 7 -->
+				<section>
+					<h3>Virtual DOM</h3>
+					<img src="/src/assets/img/virtualDOMpic.jpg" alt="VDOM tree"
+						style="margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+				</section>
+				<!-- 8 -->
+				<section>
+					<h3>Debugging</h3>
+					<img src="/src/assets/img/reactApp.jpg" alt="debugging app chrome"
+						style="height: 500px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+				</section>
+				<!-- 9 -->
+				<section>
+					<h3>Components, State, and Props</h3>
+					<section id="fragments">
+						<p class="fragment">&#183 Functional Components</p>
+						<pre class="fragment fade-in"><code data-noescape data-trim class="hljs" >
+			function Greeting(props) {
+				return Welcome to {props.name};
+			}
+		</code></pre>
+						<p class="fragment">&#183 Class Components</p>
+						<pre class="fragment fade-in"><code data-noescape data-trim class="hljs" >
+			class Greeting extends React.Component {
+				render() {
+				  return Welcome to {this.props.name};
+				}
+			}
+		</code></pre>
+					</section>
+				</section>
+				<!-- 10 -->
+				<section>
+					<h2>Props</h2>
+					<pre class="fragment fade-in"><code data-trim class="hljs" >
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App.jsx';
+
+ReactDOM.render(<App carProp = "1200cc" bikeProp = "140cc"/>,
+	document.getElementById('app'));
+
+export default App;
+</code></pre>
+
+					<pre class="fragment fade-in"><code data-noescape data-trim class="hljs" >
+	import React from 'react';
+	import { StyleSheet, Text, View } from 'react-native';
+
+	export default class App extends React.component {
+		state = {
+			myState: 'Learn React Native'
+		}
+		render() {
+			return (<View><Text>{this.state.myState}</Text></View>);
+		}
+	};
+</code></pre>
+				</section>
+				</section>
+				<!-- 11 -->
+				<section>
+					<a href="https://reactjs.org/">
+						<img src="/src/assets/img/react_logo.png" alt="react js logo" class="demo-logo">
+					</a>
+					<h3>Thanks for watching!</h3>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+			});
+		</script>
+</body>
+
+</html>
